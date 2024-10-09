@@ -7,27 +7,27 @@ async function quantidadeUsuarios() {
     
     const data = [
       {
-        x: nomeDasRedes,
-        y: quantidadeUsuarios,
-        type: 'bar'
-      }
-      
-    ]
-    const grafico = document.createElement('div')
-    grafico.className = 'grafico'
-    document.getElementById('graficos-container').appendChild(grafico)
-    Plotly.newPlot(grafico, data)
-
-    const data = [
-      {
         x: 'nomeDasRedes',
         y: quantidadeDeUsuarios,
         type: 'bar',
         marker: {
-          color: getComputedStyle(document.body).getPropertyValue('--primary-color')
+          color: getCSS('--primary-color')
         }
       }
     ]
     
-  }
+  const grafico = document.createElement('div')
+  grafico.className = 'grafico'
+  document.getElementById('graficos-container').appendChild(grafico)
+  Plotly.newPlot(grafico, data, layout)
+
+  const layout = {
+    plot_bgcolor: getCSS('--bg-color'),
+    paper_bgcolor: getCSS('--bg-color')
+}
+      }
+      
+
+   
+
   quantidadeUsuarios()
